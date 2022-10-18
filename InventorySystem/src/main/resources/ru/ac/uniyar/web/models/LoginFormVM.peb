@@ -1,0 +1,40 @@
+{% extends "./layout.peb" %}
+
+{% block content %}
+
+{% if model.form.errors is not empty %}
+<div class="grid-x grid-padding-x">
+    <div class="medium-12 cell warning">
+        <ul>
+            {% for error in model.form.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endif %}
+
+<form method="POST">
+    <div class="grid-x grid-padding-x">
+        <p>
+        <div class="medium-6 cell">
+            <label>Логин (имя)
+                <input type="text" name="login">
+            </label>
+        </div>
+        </p>
+        <p>
+        <div class="medium-6 cell">
+               <label>Пароль
+                    <input name="password" type="password">
+               </label>
+        </div>
+        </p>
+
+        <div class="medium-12 cell">
+            <input type="submit" value="Войти" class="button">
+        </div>
+    </div>
+</form>
+
+{% endblock %}
